@@ -89,7 +89,10 @@ ML-AMD-CWs/
 
 ## Data Availability
 
-Due to privacy or size limits, full datasets are not included. See the original paper for supplementary data, or contact the corresponding author.
+All data used in this study are publicly available in this repository.  
+You can download the initial and full datasets directly from the file list above or from the [GitHub](./) folder.
+
+If you use these datasets, please cite this repository and the associated publication.
 
 
 ## Citation
