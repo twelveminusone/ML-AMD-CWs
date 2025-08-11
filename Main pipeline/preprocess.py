@@ -327,13 +327,35 @@ def run_ideal_preprocess(
         df_final = auto_remove_features(df_hotdeck, all_remove_features)
     else:
         df_final = df_hotdeck
-    final_outfile = os.path.join(output_dir, "full dataset.xlsx")
+    final_outfile = os.path.join(output_dir, "full_dataset.xlsx")
     save_data(df_final, final_outfile)
     print(f"All imputation and feature removal completed! Final dataset saved: {final_outfile}")
     return df_final
 
 if __name__ == "__main__":
-    run_ideal_preprocess(
-        input_path=r"D:\data\ML+CWs\initial dataset\dataset after 3 times RF of 5CWs with attribute.xlsx",
-        output_dir=r"D:\data\ML+CWs\full dataset"
-    )
+    import argparse
+    from pathlib import Path
+
+    parser = argparse.ArgumentParser(description="Preprocess the raw dataset and perform the full imputation pipeline.")
+    HERE = Path(__file__).resolve().parent
+    REPO = HERE.parent  # repository root (ML+AMD+CWs/)
+
+    parser.add_argument("--input", type=Path, default=REPO / "data" / "initial_dataset.xlsx",
+                        help="Path to the initial dataset (with missing values).")
+    parser.add_argument("--outdir", type=Path, default=REPO / "data",
+                        help="Directory to save the processed dataset.")
+    parser.add_argument("--outfile", type=str, default="full_dataset.xlsx",
+                        help="Filename for the processed dataset. Default: full_dataset.xlsx")
+
+    args = parser.parse_args()
+    args.outdir.mkdir(parents=True, exist_ok=True)
+
+    df_final = run_ideal_preprocess(input_path=str(args.input), output_dir=str(args.outdir))
+
+    # Save to a standardized filename in addition to whatever the function created
+    final_path = args.outdir / args.outfile
+    try:
+        df_final.to_excel(final_path, index=False)
+        print(f"[OK] Saved standardized output to: {final_path}")
+    except Exception as e:
+        print(f"[WARN] Failed to save standardized output: {type(e).__name__}: {e}")

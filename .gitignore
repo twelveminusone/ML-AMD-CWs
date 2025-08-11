@@ -1,0 +1,46 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+.conda/
+.conda_env/
+pip-wheel-metadata/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build / dist
+build/
+dist/
+
+# Logs / temp
+*.log
+*.tmp
+*.bak
+
+# Project artifacts
+outputs/**
+!outputs/.gitkeep
+
+# Data (keep placeholders / docs only)
+data/**
+!data/.gitkeep
+!data/README.md
+
+# Model artifacts
+*.joblib
+*.pkl
+
+# Misc
+*.zip
