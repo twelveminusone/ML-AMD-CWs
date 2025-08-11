@@ -11,7 +11,7 @@ We provide the primary end-to-end **Main pipeline** and a set of **Additional an
 
 ## Research Flowchart
 
-![Research Workflow](GitHub/Flowchart.png)
+![Research Workflow](Flowchart.png)
 
 *The figure illustrates the end-to-end process from raw data to interpretation.*
 
@@ -207,3 +207,4 @@ This repository is released under the **MIT License**. See `LICENSE` for details
 For questions or collaboration, please contact:
 - Jingkang Zhang (倞康 张): zjk1202321889@cug.edu.cn
 - Or open an issue on GitHub.
+
